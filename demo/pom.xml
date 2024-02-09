@@ -73,6 +73,13 @@
 						</goals>
 						<phase>generate-resources</phase>
 					</execution>
+			        <execution>
+			            <id>install dependencies</id>
+			            <goals>
+			                <goal>yarn</goal>
+			            </goals>
+			            <phase>generate-resources</phase>
+			        </execution>
 				</executions>
 				<configuration>
 					<nodeVersion>v20.11.0</nodeVersion>
@@ -93,9 +100,10 @@
 							<goal>exec</goal>
 						</goals>
 						<configuration>
-							<executable>yarn</executable>
+							<executable>${project.basedir}/node/node</executable>
 							<arguments>
-								<argument>build</argument>
+								<argument>${project.basedir}/node/yarn/dist/bin/yarn.js</argument>
+                    			<argument>build2</argument>
 							</arguments>
 
 						</configuration>
